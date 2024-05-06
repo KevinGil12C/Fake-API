@@ -1,6 +1,8 @@
+const API_URL = "https://fake-api-ruby.vercel.app";
+
 async function listar_productos() {
     try {
-        const conexion = await fetch("https://fake-api-ruby.vercel.app/productos", {
+        const conexion = await fetch(`${API_URL}/productos`, {
             method: "GET",
             headers: {
                 "Content-type": "application/json"
@@ -18,7 +20,7 @@ async function listar_productos() {
 async function crear_producto(nombre, precio, imagen) {
     console.log("Creando producto...");
     console.log("Datos recibidos:", nombre, precio, imagen);
-    const conexion = await fetch("https://fake-api-ruby.vercel.app/productos", {
+    const conexion = await fetch(`${API_URL}/productos`, {
         method: "POST",
         headers: {
             "Content-type": "application/json"
@@ -38,7 +40,7 @@ async function crear_producto(nombre, precio, imagen) {
 }
 
 async function buscar_producto(referencia) {
-    const conexion = await fetch(`https://fake-api-ruby.vercel.app/productos?q=${referencia}`)
+    const conexion = await fetch(`${API_URL}/productos?q=${referencia}`)
     const conexionConvertida = conexion.json();
 
     return conexionConvertida;
@@ -47,7 +49,7 @@ async function buscar_producto(referencia) {
 
 export async function eliminar_producto(idProducto) {
     try {
-        const conexion = await fetch(`https://fake-api-ruby.vercel.app/productos/${idProducto}`, {
+        const conexion = await fetch(`${API_URL}/productos/${idProducto}`, {
             method: "DELETE",
             headers: {
                 "Content-type": "application/json"
