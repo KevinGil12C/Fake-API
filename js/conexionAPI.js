@@ -1,4 +1,4 @@
-const API_URL = "https://fake-api-ruby.vercel.app";
+const API_URL = "https://fake-api-storage.vercel.app/";
 
 async function listar_productos() {
     try {
